@@ -1,10 +1,12 @@
 <div align="center">
 
 # Dmitry Kudryavtsev
-### Senior Systems & Cybersecurity Engineer
+### Главный специалист по информационной безопасности · Казфосфат · Казахстан
 ### OPSEC · Infrastructure Security · Detection Engineering
 
-**15+ лет практики. Инфраструктура 20 000+ рабочих мест. SOC с нуля.**
+**Сейчас — информационная безопасность промышленного предприятия в Казахстане.**
+
+15+ лет опыта в инфраструктуре и ИБ: от платёжных систем до распределённых организаций.
 
 Строю отказоустойчивую инфраструктуру, сокращаю поверхность атаки и превращаю безопасность в управляемый процесс.
 
@@ -16,7 +18,7 @@
 
 ## Кто я
 
-Я Дмитрий Кудрявцев — Senior System Administrator и Cybersecurity Engineer с **15+ годами практического опыта** в Windows/Linux, сетях и информационной безопасности. Работал с высоконагруженной платёжной инфраструктурой, распределёнными системами национального масштаба и информационной безопасностью промышленного предприятия.
+Я Дмитрий Кудрявцев — Senior System Administrator и Cybersecurity Engineer с **15+ годами практического опыта** в Windows/Linux, сетях и информационной безопасности. **Сейчас работаю главным специалистом по информационной безопасности в Казфосфате, Казахстан.** Применяю опыт инфраструктурной инженерии и управления ИБ к задачам промышленного предприятия. Ранее работал в России с высоконагруженной платёжной инфраструктурой и распределёнными системами национального масштаба.
 
 Соединяю техническую глубину инженера с опытом руководства ИТ и ИБ: строю отказоустойчивые системы, усиливаю защиту, автоматизирую эксплуатацию и поддерживаю критичные сервисы 24/7.
 
@@ -24,7 +26,19 @@
 
 Развиваю открытые инструменты для аудита инфраструктуры, Detection Engineering и лабораторной работы Red / Blue / Purple Team. Здесь можно изучить исходный код, архитектуру, модели угроз, тесты и ограничения каждого проекта.
 
-## Опыт и результаты
+## Сейчас: Казфосфат, Казахстан
+
+### Главный специалист по информационной безопасности
+
+Моя текущая работа — развитие информационной безопасности крупного предприятия химической и горнодобывающей отраслей.
+
+- Занимаюсь управлением уязвимостями с **MaxPatrol VM**.
+- Работаю над интеграцией SOC через **ELK**, проектами **DLP** и защиты бренда.
+- Разрабатываю политики и процедуры ИБ с учётом законодательства Казахстана и **ISO 27001**.
+
+Мой профессиональный фокус в Казахстане — применять накопленный опыт к местным задачам: развивать управляемые процессы безопасности, связывать технические меры с эксплуатацией и делать результаты проверяемыми.
+
+## Ранее: опыт и результаты в России
 
 ### Руководитель ИТ и информационной безопасности
 **Крупный национальный инфраструктурный оператор · государственный сектор**
@@ -35,11 +49,6 @@
 - Внедрил ITSM/ITIL-процессы управления инцидентами, изменениями и проблемами.
 - **Сократил ИТ-бюджет на 18%** благодаря закупочным процедурам и внедрению open-source решений.
 - Автоматизировал эксплуатацию с Ansible, PowerShell и Bash.
-
-### Главный специалист по информационной безопасности
-**Крупная промышленная компания · химическая и горнодобывающая отрасли · Казахстан**
-
-Управление уязвимостями с MaxPatrol VM, интеграция SOC через ELK, проекты DLP и защиты бренда. Разработка политик и процедур ИБ с учётом национального законодательства и ISO 27001.
 
 ### Системный администратор / инженер инфраструктуры
 **PayOnline · платёжный процессинг / fintech**
@@ -135,10 +144,15 @@
 
 I'm **Dmitry Kudryavtsev**, a Senior System Administrator and Cybersecurity Engineer with **15+ years of hands-on experience** in Windows/Linux infrastructure, networks and information security. I build resilient systems, harden them, automate operations and keep critical services running 24/7.
 
-**Professional track record**
+**Current role — Kazphosphate, Kazakhstan**
+
+I currently work as **Chief Information Security Specialist at Kazphosphate**, a major chemical and mining enterprise. My work covers vulnerability management with MaxPatrol VM, SOC integration through ELK, DLP and brand-protection projects, and security policies aligned with Kazakhstan legislation and ISO 27001.
+
+I bring my infrastructure and security experience to industrial security challenges in Kazakhstan, with a focus on practical controls, sustainable operations and verifiable results.
+
+**Previous experience in Russia**
 
 - **Head of IT and Information Security, national infrastructure operator:** managed 20,000+ workstations across 50+ branches; built a SOC from scratch; deployed SIEM, DLP, PAM and WAF; implemented ITSM/ITIL processes; reduced the IT budget by 18%.
-- **Chief Information Security Specialist, industrial company in Kazakhstan:** vulnerability management with MaxPatrol VM, SOC integration through ELK, DLP and brand protection, security policies and audit preparation.
 - **System Administrator / Infrastructure Engineer, PayOnline:** high-load Windows/Linux systems, networks and storage, MS SQL clusters and 1C performance tuning, PCI DSS controls, backup and disaster recovery.
 
 My focus is on trust boundaries, privileged access, attack surface, visibility and recovery. I develop open-source tools for evidence-based infrastructure assessment, detection engineering and controlled Red / Blue / Purple Team labs.
