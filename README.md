@@ -16,6 +16,22 @@
 
 ---
 
+## Public security work / Проверяемые проекты
+
+I work in information security in Kazakhstan's chemical industry and maintain open-source defensive security tools. My current professional focus is vulnerability management, SOC integration, infrastructure hardening and recovery.
+
+The links below let reviewers inspect the implementation, documented checks and remaining gaps directly:
+
+| Project | Defensive purpose | Evidence and limits |
+| --- | --- | --- |
+| [Detection Engineering Toolkit](https://github.com/mejustbox-byte/detection-engineering-toolkit) | Package ATT&CK scenarios, experimental Sigma rules, SPL/KQL and synthetic cases for review | [Versioned verification record](https://github.com/mejustbox-byte/detection-engineering-toolkit/blob/main/docs/en/VERIFICATION.md). Offline checks do not establish detection in a live SIEM. |
+| [Publication OPSEC Guard](https://github.com/mejustbox-byte/publication-opsec-guard) | Inspect prepared text and selected Office content for potential disclosures before publication | [Implementation and evidence matrix](https://github.com/mejustbox-byte/publication-opsec-guard/blob/main/docs/en/check-matrix.md). Alpha; bounded inspection with explicit coverage gaps. |
+| [OPSEC Validation Lab](https://github.com/mejustbox-byte/opsec-validation-lab) | Verify declared report expectations against a versioned contract | Synthetic laboratory assertions; no live-environment assurance is claimed. |
+
+These are software-development and validation artifacts. They are not CVE discovery credits, accepted bug-bounty reports or independent attestations of production deployment. The PHP Portal Audit project references existing CVEs for assessment; it does not claim their discovery.
+
+Публичные материалы описывают открытые инструменты и синтетические проверки. Данные работодателя, внутренние адреса, конфигурации и рабочие отчёты не публикуются. Любая проверка реальной инфраструктуры требует соответствующих полномочий и согласованной области работ.
+
 ## Кто я
 
 Я Дмитрий Кудрявцев — Senior System Administrator и Cybersecurity Engineer с **15+ годами практического опыта** в Windows/Linux, сетях и информационной безопасности. **Сейчас работаю главным специалистом по информационной безопасности в компании химической отрасли в Казахстане.** Применяю опыт инфраструктурной инженерии и управления ИБ к задачам промышленного предприятия. Ранее работал в России с высоконагруженной платёжной инфраструктурой и распределёнными системами национального масштаба.
