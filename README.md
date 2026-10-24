@@ -1,210 +1,44 @@
-<div align="center">
-
 # Dmitry Kudryavtsev
-### Главный специалист по информационной безопасности · Химическая промышленность · Казахстан
-### OPSEC · Infrastructure Security · Detection Engineering
 
-**Сейчас — информационная безопасность промышленного предприятия в Казахстане.**
+**Industrial infrastructure security · Kazakhstan**
 
-15+ лет опыта в инфраструктуре и ИБ: от платёжных систем до распределённых организаций.
+[Русский](README.ru.md) · [Research](#research) · [Tools](#selected-tools) · [Experience](#professional-experience)
 
-Строю отказоустойчивую инфраструктуру, сокращаю поверхность атаки и превращаю безопасность в управляемый процесс.
+I work as Chief Information Security Specialist in Kazakhstan's chemical industry. My responsibilities include infrastructure protection, vulnerability management, perimeter gateways and firewalls, SIEM, PAM, MFA and EDR/XDR.
 
-[Проекты](#избранные-проекты) · [Чем могу помочь](#чем-могу-помочь) · [English](#english)
+I maintain open-source defensive tools and publish reproducible research, from initial assessment of suspicious PE files to Beacon configuration extraction and detection-rule testing. Each analysis records its source, tool version, supporting evidence and limits.
 
-</div>
+## Research
 
----
+### [Two Beacon configurations in one file: why the first match is not enough](articles/en/beacon-two-configurations.md)
 
-## Public security work / Проверяемые проекты
+Two XOR `0x69` blocks share network settings but differ in other fields. I explain why the tool preserves both results as `ambiguous`, and why identifying the active configuration requires additional evidence.
 
-I work in information security in Kazakhstan's chemical industry and maintain open-source defensive security tools. My current professional focus is vulnerability management, SOC integration, infrastructure hardening and recovery.
+### [WannaCry and one finding: what a bounded static analysis leaves unknown](articles/en/wannacry-analysis-limits.md)
 
-The links below let reviewers inspect the implementation, documented checks and remaining gaps directly:
+A research sample illustrates the meaning of `partial`: a `WriteFile` import, a high-entropy resource section and an exhausted string budget. Finding counts alone cannot establish whether a file is safe.
 
-| Project | Defensive purpose | Evidence and limits |
+## Selected tools
+
+| Project | Defensive purpose | Results and verification |
 | --- | --- | --- |
-| [Ransomware Triage Lab](https://github.com/mejustbox-byte/ransomware-triage-lab) | Static PE and normalized-event triage for ransomware investigations | [Release 0.1.0](https://github.com/mejustbox-byte/ransomware-triage-lab/releases/tag/v0.1.0) · [WannaCry / TeslaCrypt case notes](https://github.com/mejustbox-byte/ransomware-triage-lab/blob/v0.1.0/docs/en/cases.md) · [Tag CI: 32 tests per job](https://github.com/mejustbox-byte/ransomware-triage-lab/actions/runs/40065887802). Static observations; partial coverage is retained. |
-| [C2 Client Analyzer](https://github.com/mejustbox-byte/c2-client-analyzer) | Extract and compare classic Beacon TLV configurations; correlate supplied connection records | [Release 0.1.0](https://github.com/mejustbox-byte/c2-client-analyzer/releases/tag/v0.1.0) · [XOR 0x69 / 0x2e case notes](https://github.com/mejustbox-byte/c2-client-analyzer/blob/v0.1.0/docs/en/cases.md) · [Tag CI: 28 tests per job](https://github.com/mejustbox-byte/c2-client-analyzer/actions/runs/40065929132). One config family; ambiguous results remain explicit. |
-| [Detection Engineering Toolkit](https://github.com/mejustbox-byte/detection-engineering-toolkit) | Package ATT&CK scenarios, experimental Sigma rules, SPL/KQL and synthetic cases for review | [Versioned verification record](https://github.com/mejustbox-byte/detection-engineering-toolkit/blob/main/docs/en/VERIFICATION.md). Offline checks do not establish detection in a live SIEM. |
-| [Publication OPSEC Guard](https://github.com/mejustbox-byte/publication-opsec-guard) | Inspect prepared text and selected Office content for potential disclosures before publication | [Implementation and evidence matrix](https://github.com/mejustbox-byte/publication-opsec-guard/blob/main/docs/en/check-matrix.md). Alpha; bounded inspection with explicit coverage gaps. |
-| [OPSEC Validation Lab](https://github.com/mejustbox-byte/opsec-validation-lab) | Verify declared report expectations against a versioned contract | Synthetic laboratory assertions; no live-environment assurance is claimed. |
+| [Ransomware Triage Lab](https://github.com/mejustbox-byte/ransomware-triage-lab) | Static PE analysis, initial event triage and YARA/Sigma rules | [Release 0.1.0](https://github.com/mejustbox-byte/ransomware-triage-lab/releases/tag/v0.1.0), WannaCry/TeslaCrypt case notes, [release CI](https://github.com/mejustbox-byte/ransomware-triage-lab/actions/runs/40065887802) |
+| [C2 Client Analyzer](https://github.com/mejustbox-byte/c2-client-analyzer) | Extract and compare classic Beacon TLV configurations; correlate supplied connection records | [Release 0.1.0](https://github.com/mejustbox-byte/c2-client-analyzer/releases/tag/v0.1.0), two research cases, [release CI](https://github.com/mejustbox-byte/c2-client-analyzer/actions/runs/40065929132) |
+| [Detection Engineering Toolkit](https://github.com/mejustbox-byte/detection-engineering-toolkit) | Prepare experimental Sigma/SPL/KQL rules and test scenarios | [Verification record](https://github.com/mejustbox-byte/detection-engineering-toolkit/blob/main/docs/en/VERIFICATION.md); live SIEM validation remains a separate step |
+| [Publication OPSEC Guard](https://github.com/mejustbox-byte/publication-opsec-guard) | Inspect prepared material for potential information disclosure | [Implementation and evidence matrix](https://github.com/mejustbox-byte/publication-opsec-guard/blob/main/docs/en/check-matrix.md); bounded inspection scope |
 
-These are software-development and validation artifacts. They are not CVE discovery credits, accepted bug-bounty reports or independent attestations of production deployment. The PHP Portal Audit project references existing CVEs for assessment; it does not claim their discovery.
+Other work is available in my [repositories](https://github.com/mejustbox-byte?tab=repositories): AD, Azure/Entra, Hyper-V, Linux and VPS assessment, report validation, backup evidence and network-configuration review.
 
-Публичные материалы описывают открытые инструменты, синтетические проверки и воспроизводимые статические разборы образцов из публичных исследовательских источников. Происхождение и SHA-256 входных данных зафиксированы; код образцов не выполнялся. Данные работодателя, внутренние адреса, конфигурации и рабочие отчёты не публикуются. Любая проверка реальной инфраструктуры требует соответствующих полномочий и согласованной области работ.
+## Professional experience
 
-## Кто я
+I have more than 15 years of experience with Windows/Linux, networks, resilient infrastructure and information security. My previous work in Russia included payment infrastructure, distributed organizations and IT/security leadership. I now apply that experience to industrial infrastructure security in Kazakhstan.
 
-Я Дмитрий Кудрявцев — Senior System Administrator и Cybersecurity Engineer с **15+ годами практического опыта** в Windows/Linux, сетях и информационной безопасности. **Сейчас работаю главным специалистом по информационной безопасности в компании химической отрасли в Казахстане.** Применяю опыт инфраструктурной инженерии и управления ИБ к задачам промышленного предприятия. Ранее работал в России с высоконагруженной платёжной инфраструктурой и распределёнными системами национального масштаба.
+My working areas include vulnerability management, monitoring and incident-response processes, access management, network perimeter protection, automation and recovery readiness.
 
-Соединяю техническую глубину инженера с опытом руководства ИТ и ИБ: строю отказоустойчивые системы, усиливаю защиту, автоматизирую эксплуатацию и поддерживаю критичные сервисы 24/7.
+## Working approach
 
-Мой фокус — **OPSEC инженерным методом**: границы доверия, привилегии, поверхность атаки, наблюдаемость и восстановление. Рассматриваю защиту как систему: от конфигурации серверов и управления доступом до качества детектирования и готовности команды к инциденту.
+I tie conclusions to specific inputs and test conditions, and distinguish an observed indicator, a hypothesis and verified behavior. Publications use synthetic examples and pinned public research material. Employer configurations, secrets and operational reports remain private.
 
-Развиваю открытые инструменты для аудита инфраструктуры, Detection Engineering и лабораторной работы Red / Blue / Purple Team. Здесь можно изучить исходный код, архитектуру, модели угроз, тесты и ограничения каждого проекта.
+## Contact and collaboration
 
-## Сейчас: информационная безопасность в химической отрасли Казахстана
-
-### Главный специалист по информационной безопасности
-
-Моя текущая работа — развитие информационной безопасности крупного предприятия химической и горнодобывающей отраслей.
-
-- Занимаюсь управлением уязвимостями с **MaxPatrol VM**.
-- Работаю над интеграцией SOC через **ELK**, проектами **DLP** и защиты бренда.
-- Разрабатываю политики и процедуры ИБ с учётом законодательства Казахстана и **ISO 27001**.
-
-Мой профессиональный фокус в Казахстане — применять накопленный опыт к местным задачам: развивать управляемые процессы безопасности, связывать технические меры с эксплуатацией и делать результаты проверяемыми.
-
-## Ранее: опыт и результаты в России
-
-### Руководитель ИТ и информационной безопасности
-**Крупный национальный инфраструктурный оператор · государственный сектор**
-
-- Управлял инфраструктурой **20 000+ рабочих мест в 50+ филиалах**.
-- Обеспечивал круглосуточную работу высокодоступных систем и Anti-DDoS-защиты национального масштаба.
-- **Построил SOC с нуля:** мониторинг, реагирование на инциденты, внедрение SIEM, DLP, PAM и WAF.
-- Внедрил ITSM/ITIL-процессы управления инцидентами, изменениями и проблемами.
-- **Сократил ИТ-бюджет на 18%** благодаря закупочным процедурам и внедрению open-source решений.
-- Автоматизировал эксплуатацию с Ansible, PowerShell и Bash.
-
-### Системный администратор / инженер инфраструктуры
-**Платёжный процессинг · fintech**
-
-Высоконагруженная Windows/Linux-инфраструктура, сети и системы хранения. Серверы 1С, кластеры MS SQL и оптимизация производительности. Реализация мер PCI DSS: сегментация сети, шифрование и контроль доступа. Политики резервного копирования и аварийное восстановление.
-
-## Чем могу помочь
-
-| Задача | Что могу сделать |
-| :--- | :--- |
-| **Защитить инфраструктуру** | Аудит безопасности, оценка уязвимостей, hardening, NGFW/WAF, DLP/PAM/2FA, Anti-DDoS |
-| **Построить наблюдаемость и SOC** | SIEM, ELK, Zabbix, мониторинг, процессы реагирования и управление уязвимостями |
-| **Модернизировать Windows** | AD, GPO, DNS, DHCP, DFS, RDS, WSUS, IIS; миграции Windows Server 2012/2016 → 2019/2022 |
-| **Стабилизировать Linux** | Ubuntu, Debian, RHEL/CentOS; Nginx, Docker, hardening и диагностика |
-| **Связать площадки и защитить сеть** | MikroTik, Cisco, Huawei, Check Point, Juniper, SonicWall; IPsec, L2TP, OpenVPN, WireGuard, site-to-site VPN |
-| **Восстановить доставку почты** | Exchange, Zimbra, mailcow; SPF, DKIM, DMARC, PTR и диагностика доставляемости |
-| **Оптимизировать базы и виртуализацию** | MS SQL Server, PostgreSQL, 1С; VMware vSphere, Hyper-V, Proxmox, Citrix |
-| **Подготовить восстановление** | Veeam, rclone, FTP/SFTP offsite-схемы, GitLab backups, планирование DR |
-| **Убрать ручную рутину** | PowerShell, Bash, Ansible; повторяемые операции и документированные изменения |
-| **Развить Detection Engineering** | ATT&CK, Sigma, SPL/KQL, синтетические тесты и контролируемые Purple Team-лаборатории |
-
-**Формат работы:** удалённо, с понятной письменной коммуникацией и документацией каждого изменения. От диагностики отдельного сервиса до проектирования инфраструктуры и процессов безопасности.
-
-## Избранные проекты
-
-### [Ransomware Triage Lab](https://github.com/mejustbox-byte/ransomware-triage-lab)
-**Статический анализ шифровальщиков и свидетельств их работы.**
-
-Разбор заголовков, секций и импортов PE, поиск строк вмешательства в восстановление, анализ нормализованных событий, YARA/Sigma-правила и отчёты JSON/HTML. Опубликованы воспроизводимые статические разборы WannaCry и TeslaCrypt с закреплёнными источниками и SHA-256. Найденная строка не доказывает выполнение команды; ограничения покрытия видны в отчёте.
-
-[Релиз 0.1.0](https://github.com/mejustbox-byte/ransomware-triage-lab/releases/tag/v0.1.0) · [Разборы RU](https://github.com/mejustbox-byte/ransomware-triage-lab/blob/v0.1.0/docs/ru/cases.md) · [Проверки выпуска](https://github.com/mejustbox-byte/ransomware-triage-lab/actions/runs/40065887802): 32 тестовых метода в каждом задании матрицы, сборка и установка wheel на Linux, Windows и macOS.
-
-### [C2 Client Analyzer](https://github.com/mejustbox-byte/c2-client-analyzer)
-**Исследование конфигураций C2-клиентов Beacon.**
-
-Офлайн-извлечение классических TLV-конфигураций в открытом виде и с XOR 0x69/0x2e, точные смещения полей, сравнение конфигураций и сопоставление с предоставленными журналами соединений. Два воспроизводимых разбора показывают как однозначный результат, так и несколько подходящих блоков. Сетевых обращений к извлечённым адресам нет; покрытие ограничено одним семейством конфигураций.
-
-[Релиз 0.1.0](https://github.com/mejustbox-byte/c2-client-analyzer/releases/tag/v0.1.0) · [Разборы RU](https://github.com/mejustbox-byte/c2-client-analyzer/blob/v0.1.0/docs/ru/cases.md) · [Проверки выпуска](https://github.com/mejustbox-byte/c2-client-analyzer/actions/runs/40065929132): 28 тестовых методов в каждом задании матрицы, сборка и установка wheel на Linux, Windows и macOS.
-
-### [Detection Engineering Toolkit](https://github.com/mejustbox-byte/detection-engineering-toolkit)
-**От сценария ATT&CK к проверяемому пакету детектирования.**
-
-Локальный CLI объединяет экспериментальное Sigma-правило, Splunk SPL, Microsoft Defender KQL, синтетические тесты и план Atomic Red Team. Происхождение входных данных и контрольные суммы сохраняются вместе с результатами.
-
-**Практическая польза:** единый пакет для review, передачи между Red и Blue Team и последующей проверки в лаборатории. Офлайн CLI реализован; реальная Atomic / SIEM-валидация остаётся отдельным этапом.
-
-### [Sigma RuleForge](https://github.com/mejustbox-byte/sigma-ruleforge)
-**Качество правил до загрузки в SIEM.**
-
-Офлайн-валидация ограниченного профиля Sigma, генерация Splunk SPL с явным mapping полей, поведенческие проверки на синтетических событиях и сверка ATT&CK-тегов с локальным STIX bundle.
-
-**Практическая польза:** обнаружение ошибок структуры, несовместимых конструкций и расхождений ожидаемого поведения. Поддерживаемый профиль и ограничения Splunk-проверок документированы.
-
-### [RedBlue Arena](https://github.com/mejustbox-byte/redblue-arena)
-**Контролируемая лаборатория для проверки обнаружения.**
-
-Локальная платформа с синтетическими сценариями, API и dashboard, tenant-scoped RBAC, очередью заданий, квотами, Docker workers и аудитом. Оценка правил включает recall и false positive rate на контрольных наборах.
-
-**Практическая польза:** воспроизводимые эксперименты с правилами и сценариями. Текущая реализация — локальная лабораторная платформа.
-
-### OPSEC Auditor Suite
-**Анализ свидетельств безопасности с понятными рекомендациями.**
-
-[Active Directory](https://github.com/mejustbox-byte/ad-opsec-auditor) · [Azure / Entra](https://github.com/mejustbox-byte/azure-opsec-auditor) · [Hyper-V](https://github.com/mejustbox-byte/hyperv-opsec-auditor) · [Linux](https://github.com/mejustbox-byte/linux-opsec-auditor) · [VPS](https://github.com/mejustbox-byte/vps-opsec-auditor)
-
-Семейство проектов для read-only аудита и анализа нормализованных данных инфраструктуры. В центре — свидетельства, критичность, уверенность, рекомендации и явное обозначение отсутствующих данных.
-
-**Практическая польза:** структурированная оценка состояния защиты. Глубина реализации и перечень реальных платформенных проверок указаны в каждом репозитории.
-
-## Инженерный подход
-
-В открытых проектах развиваю инструменты для аудита, проверки правил и воспроизводимых лабораторий: контракты данных, модели угроз, архитектура, CLI/API, автоматические проверки, CI и документация.
-
-Полный цикл: **задача → модель угроз → архитектура → реализация → проверка → документированный результат**.
-
-## Как я работаю
-
-**Свидетельства прежде выводов.** Результат проверки относится к конкретным данным и условиям.
-
-**Минимальные привилегии и явный scope.** Аудит и лабораторные сценарии проектируются с контролем доступа и границ выполнения.
-
-**Воспроизводимость.** Версии, входные данные, тесты и ограничения должны быть прослеживаемыми.
-
-**Конфиденциальность.** Учебные примеры используют синтетические данные, исследовательские разборы — закреплённые публичные источники. Рабочие секреты и инфраструктурные выгрузки остаются вне репозиториев.
-
-## Образование, практики и языки
-
-**Образование:** Московский технологический институт — информационные системы и технологии.
-
-**Практики и стандарты:** ITIL/ITSM, PCI DSS, ISO 27001, защита персональных данных, внедрение СУИБ и подготовка к аудиту.
-
-**Языки:** русский — родной; английский — техническая документация и письменная коммуникация; казахский — базовый.
-
-## Сотрудничество
-
-**Нужен инженер, который понимает и инфраструктуру, и безопасность?**
-
-Готов обсуждать аудит и hardening, миграции, отказоустойчивость, SOC, автоматизацию и разработку инструментов безопасности. Для первого обсуждения достаточно описать систему, проблему и ожидаемый результат.
-
-Для обсуждения задачи используйте публичные контакты профиля. Для вопросов об открытых инструментах — Issues соответствующего репозитория. Уязвимости сообщайте по его SECURITY.md.
-
----
-
-## English
-
-### Infrastructure security with an OPSEC mindset
-
-I'm **Dmitry Kudryavtsev**, a Senior System Administrator and Cybersecurity Engineer with **15+ years of hands-on experience** in Windows/Linux infrastructure, networks and information security. I build resilient systems, harden them, automate operations and keep critical services running 24/7.
-
-**Current role — Chemical industry, Kazakhstan**
-
-I currently work as **Chief Information Security Specialist at a chemical industry company in Kazakhstan**. My work covers vulnerability management with MaxPatrol VM, SOC integration through ELK, DLP and brand-protection projects, and security policies aligned with Kazakhstan legislation and ISO 27001.
-
-I bring my infrastructure and security experience to industrial security challenges in Kazakhstan, with a focus on practical controls, sustainable operations and verifiable results.
-
-**Previous experience in Russia**
-
-- **Head of IT and Information Security, national infrastructure operator:** managed 20,000+ workstations across 50+ branches; built a SOC from scratch; deployed SIEM, DLP, PAM and WAF; implemented ITSM/ITIL processes; reduced the IT budget by 18%.
-- **System Administrator / Infrastructure Engineer, payment processing / fintech:** high-load Windows/Linux systems, networks and storage, MS SQL clusters and 1C performance tuning, PCI DSS controls, backup and disaster recovery.
-
-My focus is on trust boundaries, privileged access, attack surface, visibility and recovery. I develop open-source tools for evidence-based infrastructure assessment, detection engineering and controlled Red / Blue / Purple Team labs.
-
-**Selected work**
-
-- **[Ransomware Triage Lab](https://github.com/mejustbox-byte/ransomware-triage-lab/releases/tag/v0.1.0):** static PE and normalized-event triage, YARA/Sigma rules and [reproducible WannaCry/TeslaCrypt case notes](https://github.com/mejustbox-byte/ransomware-triage-lab/blob/v0.1.0/docs/en/cases.md). Sample code was not executed; static findings do not establish runtime behavior.
-- **[C2 Client Analyzer](https://github.com/mejustbox-byte/c2-client-analyzer/releases/tag/v0.1.0):** classic Beacon configuration extraction, comparison and supplied-log correlation, with [two pinned research cases](https://github.com/mejustbox-byte/c2-client-analyzer/blob/v0.1.0/docs/en/cases.md). XOR 0x69/0x2e are two encodings of one config family; multiple blocks remain ambiguous.
-- **[Detection Engineering Toolkit](https://github.com/mejustbox-byte/detection-engineering-toolkit):** ATT&CK scenarios packaged with experimental Sigma rules, SPL / KQL, synthetic cases and Atomic test plans.
-- **[Sigma RuleForge](https://github.com/mejustbox-byte/sigma-ruleforge):** offline validation of a documented Sigma profile, Splunk conversion and synthetic behavior checks.
-- **[RedBlue Arena](https://github.com/mejustbox-byte/redblue-arena):** a local lab platform with controlled scenarios, isolated Docker workers, scoped access and detection evaluation.
-- **OPSEC Auditor Suite:** projects covering Active Directory, Azure / Entra, Hyper-V, Linux and VPS security evidence.
-
-**How I can help:** Windows Server and Linux administration, infrastructure migrations, security audits and hardening, networks and VPNs, SOC and monitoring, mail deliverability, databases and virtualization, backup / DR, automation and security tooling.
-
-**Working style:** remote delivery, clear written communication and documentation for every change.
-
-**Education:** Moscow Technological Institute — Information Systems and Technologies. **Practices:** ITIL/ITSM, PCI DSS, ISO 27001, personal data protection and ISMS. **Languages:** native Russian, technical English for documentation and written communication, basic Kazakh.
-
-Each repository documents its implementation status and validation boundaries. Synthetic tests and CI results are distinguished from validation against real infrastructure.
-
-**Let's discuss infrastructure security, OPSEC or detection engineering.** Use the public contact channels on this profile, or project Issues for open-source collaboration.
-
+I welcome discussions about defensive analysis, infrastructure security, threat detection and automation. Use the profile's public contact channels; for open-source tools, use the relevant repository's Issues. Private vulnerability-reporting instructions are in its SECURITY.md.
