@@ -24,13 +24,15 @@ The links below let reviewers inspect the implementation, documented checks and 
 
 | Project | Defensive purpose | Evidence and limits |
 | --- | --- | --- |
+| [Ransomware Triage Lab](https://github.com/mejustbox-byte/ransomware-triage-lab) | Static PE and normalized-event triage for ransomware investigations | [Release 0.1.0](https://github.com/mejustbox-byte/ransomware-triage-lab/releases/tag/v0.1.0) · [WannaCry / TeslaCrypt case notes](https://github.com/mejustbox-byte/ransomware-triage-lab/blob/v0.1.0/docs/en/cases.md) · [Tag CI: 32 tests per job](https://github.com/mejustbox-byte/ransomware-triage-lab/actions/runs/40065887802). Static observations; partial coverage is retained. |
+| [C2 Client Analyzer](https://github.com/mejustbox-byte/c2-client-analyzer) | Extract and compare classic Beacon TLV configurations; correlate supplied connection records | [Release 0.1.0](https://github.com/mejustbox-byte/c2-client-analyzer/releases/tag/v0.1.0) · [XOR 0x69 / 0x2e case notes](https://github.com/mejustbox-byte/c2-client-analyzer/blob/v0.1.0/docs/en/cases.md) · [Tag CI: 28 tests per job](https://github.com/mejustbox-byte/c2-client-analyzer/actions/runs/40065929132). One config family; ambiguous results remain explicit. |
 | [Detection Engineering Toolkit](https://github.com/mejustbox-byte/detection-engineering-toolkit) | Package ATT&CK scenarios, experimental Sigma rules, SPL/KQL and synthetic cases for review | [Versioned verification record](https://github.com/mejustbox-byte/detection-engineering-toolkit/blob/main/docs/en/VERIFICATION.md). Offline checks do not establish detection in a live SIEM. |
 | [Publication OPSEC Guard](https://github.com/mejustbox-byte/publication-opsec-guard) | Inspect prepared text and selected Office content for potential disclosures before publication | [Implementation and evidence matrix](https://github.com/mejustbox-byte/publication-opsec-guard/blob/main/docs/en/check-matrix.md). Alpha; bounded inspection with explicit coverage gaps. |
 | [OPSEC Validation Lab](https://github.com/mejustbox-byte/opsec-validation-lab) | Verify declared report expectations against a versioned contract | Synthetic laboratory assertions; no live-environment assurance is claimed. |
 
 These are software-development and validation artifacts. They are not CVE discovery credits, accepted bug-bounty reports or independent attestations of production deployment. The PHP Portal Audit project references existing CVEs for assessment; it does not claim their discovery.
 
-Публичные материалы описывают открытые инструменты и синтетические проверки. Данные работодателя, внутренние адреса, конфигурации и рабочие отчёты не публикуются. Любая проверка реальной инфраструктуры требует соответствующих полномочий и согласованной области работ.
+Публичные материалы описывают открытые инструменты, синтетические проверки и воспроизводимые статические разборы образцов из публичных исследовательских источников. Происхождение и SHA-256 входных данных зафиксированы; код образцов не выполнялся. Данные работодателя, внутренние адреса, конфигурации и рабочие отчёты не публикуются. Любая проверка реальной инфраструктуры требует соответствующих полномочий и согласованной области работ.
 
 ## Кто я
 
@@ -90,6 +92,20 @@ These are software-development and validation artifacts. They are not CVE discov
 
 ## Избранные проекты
 
+### [Ransomware Triage Lab](https://github.com/mejustbox-byte/ransomware-triage-lab)
+**Статический анализ шифровальщиков и свидетельств их работы.**
+
+Разбор заголовков, секций и импортов PE, поиск строк вмешательства в восстановление, анализ нормализованных событий, YARA/Sigma-правила и отчёты JSON/HTML. Опубликованы воспроизводимые статические разборы WannaCry и TeslaCrypt с закреплёнными источниками и SHA-256. Найденная строка не доказывает выполнение команды; ограничения покрытия видны в отчёте.
+
+[Релиз 0.1.0](https://github.com/mejustbox-byte/ransomware-triage-lab/releases/tag/v0.1.0) · [Разборы RU](https://github.com/mejustbox-byte/ransomware-triage-lab/blob/v0.1.0/docs/ru/cases.md) · [Проверки выпуска](https://github.com/mejustbox-byte/ransomware-triage-lab/actions/runs/40065887802): 32 тестовых метода в каждом задании матрицы, сборка и установка wheel на Linux, Windows и macOS.
+
+### [C2 Client Analyzer](https://github.com/mejustbox-byte/c2-client-analyzer)
+**Исследование конфигураций C2-клиентов Beacon.**
+
+Офлайн-извлечение классических TLV-конфигураций в открытом виде и с XOR 0x69/0x2e, точные смещения полей, сравнение конфигураций и сопоставление с предоставленными журналами соединений. Два воспроизводимых разбора показывают как однозначный результат, так и несколько подходящих блоков. Сетевых обращений к извлечённым адресам нет; покрытие ограничено одним семейством конфигураций.
+
+[Релиз 0.1.0](https://github.com/mejustbox-byte/c2-client-analyzer/releases/tag/v0.1.0) · [Разборы RU](https://github.com/mejustbox-byte/c2-client-analyzer/blob/v0.1.0/docs/ru/cases.md) · [Проверки выпуска](https://github.com/mejustbox-byte/c2-client-analyzer/actions/runs/40065929132): 28 тестовых методов в каждом задании матрицы, сборка и установка wheel на Linux, Windows и macOS.
+
 ### [Detection Engineering Toolkit](https://github.com/mejustbox-byte/detection-engineering-toolkit)
 **От сценария ATT&CK к проверяемому пакету детектирования.**
 
@@ -134,7 +150,7 @@ These are software-development and validation artifacts. They are not CVE discov
 
 **Воспроизводимость.** Версии, входные данные, тесты и ограничения должны быть прослеживаемыми.
 
-**Конфиденциальность.** Публичные примеры используют синтетические данные; рабочие секреты и инфраструктурные выгрузки остаются вне репозиториев.
+**Конфиденциальность.** Учебные примеры используют синтетические данные, исследовательские разборы — закреплённые публичные источники. Рабочие секреты и инфраструктурные выгрузки остаются вне репозиториев.
 
 ## Образование, практики и языки
 
@@ -175,6 +191,8 @@ My focus is on trust boundaries, privileged access, attack surface, visibility a
 
 **Selected work**
 
+- **[Ransomware Triage Lab](https://github.com/mejustbox-byte/ransomware-triage-lab/releases/tag/v0.1.0):** static PE and normalized-event triage, YARA/Sigma rules and [reproducible WannaCry/TeslaCrypt case notes](https://github.com/mejustbox-byte/ransomware-triage-lab/blob/v0.1.0/docs/en/cases.md). Sample code was not executed; static findings do not establish runtime behavior.
+- **[C2 Client Analyzer](https://github.com/mejustbox-byte/c2-client-analyzer/releases/tag/v0.1.0):** classic Beacon configuration extraction, comparison and supplied-log correlation, with [two pinned research cases](https://github.com/mejustbox-byte/c2-client-analyzer/blob/v0.1.0/docs/en/cases.md). XOR 0x69/0x2e are two encodings of one config family; multiple blocks remain ambiguous.
 - **[Detection Engineering Toolkit](https://github.com/mejustbox-byte/detection-engineering-toolkit):** ATT&CK scenarios packaged with experimental Sigma rules, SPL / KQL, synthetic cases and Atomic test plans.
 - **[Sigma RuleForge](https://github.com/mejustbox-byte/sigma-ruleforge):** offline validation of a documented Sigma profile, Splunk conversion and synthetic behavior checks.
 - **[RedBlue Arena](https://github.com/mejustbox-byte/redblue-arena):** a local lab platform with controlled scenarios, isolated Docker workers, scoped access and detection evaluation.
